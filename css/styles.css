@@ -514,15 +514,172 @@
   }
 
   /* ===================== RESPONSIVE ===================== */
-  @media (max-width: 700px) {
+  @media (max-width: 768px) {
+    /* Hero */
+    .hero {
+      min-height: auto;
+      padding-top: 20px;
+    }
+
+    .hero .flowers-tl,
+    .hero img.flowers-tl {
+      width: 160px !important;
+      margin-left: -30px !important;
+      margin-top: -10px !important;
+    }
+
+    .hero .flowers-tr,
+    .hero img.flowers-tr {
+      width: 180px !important;
+      top: 150px !important;
+      margin-right: -40px !important;
+    }
+
+    .hero img[src="img/frame.png"] {
+      width: 280px !important;
+      height: 400px !important;
+    }
+
+    .hero-names {
+      font-size: 42px;
+      margin-top: -15px;
+    }
+
+    .hero-date {
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .hero img[src="img/flowers-3.png"] {
+      width: 200px !important;
+      margin-top: 30px !important;
+    }
+
+    /* Story */
     .story-section, .venue-section {
       grid-template-columns: 1fr;
-      padding: 50px 24px;
+      padding: 50px 32px;
       gap: 30px;
     }
-    .bottom-grid {
-      grid-template-columns: 1fr;
+
+    .story-text h2 {
+      font-size: 38px;
     }
-    .hero-names { font-size: 52px; }
-    .rsvp-section, .reco-section { padding: 50px 24px; }
+
+    .story-photos {
+      justify-content: center;
+    }
+
+    /* Venue */
+    .venue-illustration {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .venue-text h2 {
+      font-size: 38px;
+      text-align: center;
+    }
+
+    .venue-text p {
+      text-align: center;
+    }
+
+    .venue-text {
+      text-align: center;
+    }
+
+    /* RSVP */
+    .rsvp-section {
+      padding: 50px 0;
+    }
+
+    .rsvp-content {
+      padding: 0 32px;
+    }
+
+    .rsvp-section h2 {
+      font-size: 38px;
+    }
+
+    .rsvp-section img.rsvp-flower-l,
+    .rsvp-section img[class*="rsvp-flower-l"] {
+      width: 100px !important;
+      left: -30px !important;
+    }
+
+    .rsvp-section img.rsvp-flower-r,
+    .rsvp-section img[class*="rsvp-flower-r"] {
+      width: 100px !important;
+      right: -30px !important;
+    }
+
+    /* Recommendations */
+    .reco-section {
+      padding: 50px 32px;
+    }
+
+    .reco-section h2 {
+      font-size: 38px;
+    }
+
+    .reco-cards {
+      grid-template-columns: 1fr !important;
+      gap: 16px;
+    }
+
+    /* FAQ */
+    section > div > h2[style*="Great Vibes"] {
+      font-size: 40px !important;
+    }
+
+    .faq-item h4 {
+      font-size: 15px;
+    }
+
+    .faq-item p {
+      font-size: 13px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 20px 16px;
+    }
+  }
+
+  /* Extra small screens */
+  @media (max-width: 400px) {
+    .hero img[src="img/frame.png"] {
+      width: 220px !important;
+      height: 320px !important;
+    }
+
+    .hero-names {
+      font-size: 34px;
+    }
+
+    .hero .flowers-tl,
+    .hero img.flowers-tl {
+      width: 130px !important;
+    }
+
+    .hero .flowers-tr,
+    .hero img.flowers-tr {
+      width: 140px !important;
+      top: 100px !important;
+    }
+
+    .hero img[src="img/flowers-3.png"] {
+      width: 150px !important;
+    }
+
+    .rsvp-section h2,
+    .reco-section h2 {
+      font-size: 32px;
+    }
+
+    .story-text h2,
+    .venue-text h2 {
+      font-size: 32px;
+    }
   }
