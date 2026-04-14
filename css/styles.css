@@ -1,0 +1,528 @@
+  :root {
+    --cream: #f5f0e8;
+    --warm-white: #faf7f2;
+    --sage: #8a9e7b;
+    --sage-dark: #6b7d5e;
+    --sage-bg: #8a9e7b;
+    --terracotta: #c47a5a;
+    --rust: #a85c3a;
+    --brown-dark: #3d2b1f;
+    --brown-mid: #6b4c35;
+    --peach: #e8b89a;
+    --dusty-rose: #d4907a;
+    --gold: #c9a96e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--cream);
+    font-family: 'Lato', sans-serif;
+    color: var(--brown-dark);
+    overflow-x: hidden;
+  }
+
+  /* ===================== DECORATIVE FLOWERS SVG ===================== */
+  .flower-decor {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.85;
+  }
+
+  /* ===================== HERO ===================== */
+  .hero {
+    position: relative;
+    background-color: var(--cream);
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 0px;
+    overflow: visible;
+  }
+
+  /* Scattered flower decorations - top left */
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(ellipse at 10% 20%, rgba(196,122,90,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 10%, rgba(138,158,123,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  /* Envelope behind photo */
+  .envelope-wrapper {
+    position: relative;
+    margin-bottom: -10px;
+    z-index: 2;
+  }
+
+  .envelope {
+    width: 260px;
+    height: 170px;
+    background: linear-gradient(145deg, #8a9e7b 0%, #6b7d5e 100%);
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    clip-path: polygon(0 30%, 50% 0%, 100% 30%, 100% 100%, 0 100%);
+    overflow: hidden;
+  }
+
+  .envelope::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, #7a8e6b 0%, #5e7050 100%);
+  }
+
+  .reco-section {
+    background: white;
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .reco-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 58px;
+    color: var(--brown-dark);
+    margin-bottom: 40px;
+  }
+
+  .reco-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* Polaroid photo */
+  .polaroid-hero {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: white;
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+    width: 180px;
+    z-index: 5;
+  }
+
+  .polaroid-hero img,
+  .polaroid-hero .photo-placeholder {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, #d4b896 0%, #c4987a 50%, #a87660 100%);
+  }
+
+  .photo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+  }
+
+  .couple-silhouette {
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  .hero-names {
+    font-family: 'Great Vibes', cursive;
+    font-size: 72px;
+    color: var(--brown-dark);
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    line-height: 1.1;
+    margin-top: -25px;
+  }
+
+  .hero-date {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 3px;
+    color: var(--brown-mid);
+    text-align: center;
+    margin-top: 8px;
+    position: relative;
+    z-index: 3;
+    text-transform: uppercase;
+  }
+
+  /* Flower Images positioned around sections */
+  .flowers-tl, .flowers-tr, .flowers-bl, .flowers-br,
+  .rsvp-flower-l, .rsvp-flower-r {
+    position: absolute;
+    pointer-events: none;
+    object-fit: contain;
+  }
+  .flowers-tl { top: 0; left: 0; width: 380px; }
+  .flowers-tr { top: 0; right: 0; width: 400px; }
+  .flowers-bl { bottom: 0; left: 20px; width: 160px; }
+  .flowers-br { bottom: 0; right: 0; width: 180px; }
+  .rsvp-flower-l { left: -50px; width: 120px; }
+  .rsvp-flower-r { right: -50px; width: 120px; }
+
+  /* ===================== DIVIDER ===================== */
+  .divider {
+    height: 6px;
+    background: white;
+  }
+
+  /* ===================== STORY SECTION ===================== */
+  .story-section {
+    background: white;
+    padding: 70px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .story-text h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 52px;
+    color: var(--brown-dark);
+    margin-bottom: 20px;
+  }
+
+  .story-text p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--brown-mid);
+    text-align: center;
+  }
+
+  .story-photos {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .polaroid-small {
+    background: white;
+    padding: 8px 8px 24px 8px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    width: 130px;
+  }
+
+  .polaroid-small:first-child {
+    transform: rotate(-5deg) translateY(10px);
+  }
+
+  .polaroid-small:last-child {
+    transform: rotate(4deg) translateY(-5px);
+  }
+
+  .polaroid-small .photo-placeholder {
+    width: 114px;
+    height: 100px;
+    font-size: 36px;
+    background: linear-gradient(135deg, #e8c4a0 0%, #d4a07a 100%);
+  }
+
+  /* tape strip */
+  .tape {
+    position: absolute;
+    top: -10px;
+    width: 60px;
+    height: 20px;
+    background: rgba(200,180,140,0.5);
+    border-radius: 2px;
+  }
+
+  /* ===================== VENUE SECTION ===================== */
+  .venue-section {
+    background: var(--warm-white);
+    padding: 70px 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .venue-illustration {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .venue-illustration svg {
+    width: 100%;
+    height: auto;
+  }
+
+  .venue-text h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: var(--brown-dark);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .venue-text p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--brown-mid);
+    line-height: 1.8;
+    margin-bottom: 6px;
+  }
+
+  .btn-directions {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 28px;
+    border: 1.5px solid var(--brown-mid);
+    border-radius: 50px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown-mid);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  .btn-directions:hover {
+    background: var(--brown-mid);
+    color: white;
+  }
+
+  /* ===================== RSVP + RECOMMENDATIONS ===================== */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 480px;
+  }
+
+  /* RSVP */
+  .rsvp-section {
+    background: var(--cream);
+    padding: 80px 0;
+    position: relative;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  .rsvp-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+    overflow: hidden;
+  }
+
+  .rsvp-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 52px;
+    color: var(--brown-dark);
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 30px;
+  }
+
+  .form-field {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d4c4b0;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.7);
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: var(--brown-dark);
+    margin-bottom: 12px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-field:focus { border-color: var(--terracotta); }
+  .form-field::placeholder { color: #a09080; }
+
+  .radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: var(--brown-mid);
+  }
+
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  select.form-field {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b4c35' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    cursor: pointer;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, var(--rust) 0%, var(--terracotta) 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 26px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    transition: opacity 0.3s;
+  }
+
+  .btn-submit:hover { opacity: 0.9; }
+
+  /* Recommendations */
+  .reco-section {
+    background: var(--sage-bg);
+    padding: 60px 40px;
+  }
+
+  .reco-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .reco-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .reco-card {
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+  }
+
+  .reco-card-img {
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(135deg, #c4b49a 0%, #a89070 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+  }
+
+  .reco-card-body {
+    padding: 14px;
+  }
+
+  .reco-card-body h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 22px;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .reco-card-body p {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* ===================== FAQ ===================== */
+  .faq-section {
+    background: var(--cream);
+    padding: 70px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .faq-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 58px;
+    color: var(--brown-dark);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .faq-item {
+    margin-bottom: 28px;
+  }
+
+  .faq-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin-bottom: 8px;
+  }
+
+  .faq-item p {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 14px;
+    color: var(--brown-mid);
+    line-height: 1.7;
+  }
+
+  /* ===================== FOOTER ===================== */
+  .footer {
+    background: var(--brown-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 24px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .footer span {
+    color: var(--peach);
+    font-family: 'Great Vibes', cursive;
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 700px) {
+    .story-section, .venue-section {
+      grid-template-columns: 1fr;
+      padding: 50px 24px;
+      gap: 30px;
+    }
+    .bottom-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-names { font-size: 52px; }
+    .rsvp-section, .reco-section { padding: 50px 24px; }
+  }
