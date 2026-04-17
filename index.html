@@ -153,37 +153,45 @@
     <h2>Confirma tu asistencia</h2>
     <p style="text-align:center; font-family:'Lato',sans-serif; font-size:15px; color:var(--brown-mid); margin-bottom:30px; font-weight:300; line-height:1.8;">Os agradecemos que confirméis vuestra asistencia a poder ser antes del 1 de octubre</p>
 
-    <label class="form-label">Nombre y apellidos <span class="required">*</span></label>
-    <input class="form-field" type="text" name="nombre" required>
+    <form id="rsvp-form">
+      <label class="form-label">Nombre y apellidos <span class="required">*</span></label>
+      <input class="form-field" type="text" name="entry.965443207" required>
 
-    <label class="form-label">¿Asistirás a la boda? <span class="required">*</span></label>
-    <div class="radio-group-vertical">
-      <label><input type="radio" name="asistencia" value="si" required> Sí</label>
-      <label><input type="radio" name="asistencia" value="no"> No</label>
+      <label class="form-label">¿Asistirás a la boda? <span class="required">*</span></label>
+      <div class="radio-group-vertical">
+        <label><input type="radio" name="entry.1017429299" value="Sí" required> Sí</label>
+        <label><input type="radio" name="entry.1017429299" value="No"> No</label>
+      </div>
+
+      <label class="form-label">¿Tienes alguna alergia, intolerancia, restricción alimentaria o dieta específica?</label>
+      <div class="radio-group-vertical">
+        <label><input type="radio" name="entry.1163954892" value="Sí"> Sí</label>
+        <label><input type="radio" name="entry.1163954892" value="No"> No</label>
+      </div>
+      <label class="form-label">Especifica los detalles:</label>
+      <input class="form-field" type="text" name="entry.1794076804" placeholder="Alergias, intolerancias, menú vegetariano, vegano, celíaco, infantil...">
+
+      <label class="form-label">¿Necesitarás autobús? <span class="required">*</span></label>
+      <div class="radio-group-vertical">
+        <label><input type="radio" name="entry.477625878" value="No" required> No</label>
+        <label><input type="radio" name="entry.477625878" value="Sí, ida y vuelta"> Sí, ida y vuelta</label>
+        <label><input type="radio" name="entry.477625878" value="Sí, solo ida"> Sí, solo ida</label>
+        <label><input type="radio" name="entry.477625878" value="Sí, solo vuelta"> Sí, solo vuelta</label>
+      </div>
+
+      <label class="form-label">¿Te alojarás en alguno de los hoteles sugeridos? ¿En cuál?</label>
+      <input class="form-field" type="text" name="entry.1118429621" placeholder="Aunque no sea de los sugeridos puedes anotar dónde te hospedarás">
+
+      <label class="form-label">¿Quieres dejarnos algún mensaje?</label>
+      <textarea class="form-field" name="entry.897303289" rows="3" placeholder="Alguna idea, canción, sugerencia..."></textarea>
+
+      <button type="submit" class="btn-submit">Enviar Confirmación</button>
+    </form>
+
+    <div id="rsvp-success" style="display:none; text-align:center; padding:40px 0;">
+      <p style="font-family:'Great Vibes',cursive; font-size:36px; color:var(--terracotta); margin-bottom:16px;">¡Gracias!</p>
+      <p style="font-family:'Lato',sans-serif; font-weight:300; font-size:15px; color:var(--brown-mid); line-height:1.8;">Tu confirmación ha sido registrada correctamente.</p>
     </div>
-
-    <label class="form-label">¿Tienes alguna alergia, intolerancia, restricción alimentaria o dieta específica?</label>
-    <div class="radio-group-vertical">
-      <label><input type="radio" name="alergias" value="si"> Sí</label>
-      <label><input type="radio" name="alergias" value="no"> No</label>
-    </div>
-    <input class="form-field" type="text" name="alergias_detalle" placeholder="En caso afirmativo, indícanos cuál">
-
-    <label class="form-label">¿Necesitarás autobús? <span class="required">*</span></label>
-    <div class="radio-group-vertical">
-      <label><input type="radio" name="autobus" value="no" required> No</label>
-      <label><input type="radio" name="autobus" value="ida_vuelta"> Sí, ida y vuelta</label>
-      <label><input type="radio" name="autobus" value="solo_ida"> Sí, solo ida</label>
-      <label><input type="radio" name="autobus" value="solo_vuelta"> Sí, solo vuelta</label>
-    </div>
-
-    <label class="form-label">¿Te alojarás en alguno de los hoteles sugeridos? ¿En cuál?</label>
-    <input class="form-field" type="text" name="hotel" placeholder="Aunque no sea de los sugeridos puedes anotar dónde te hospedarás">
-
-    <label class="form-label">¿Quieres dejarnos algún mensaje?</label>
-    <textarea class="form-field" name="mensaje" rows="3" placeholder="Alguna idea, canción, sugerencia..."></textarea>
-
-    <button class="btn-submit">Enviar Confirmación</button>
   </div>
 </section>
 

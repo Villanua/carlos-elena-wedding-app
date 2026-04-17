@@ -27,4 +27,29 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update countdown every second
   updateCountdown();
   setInterval(updateCountdown, 1000);
+
+  // RSVP Form → Google Forms
+  const form = document.getElementById('rsvp-form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+      const submitBtn = form.querySelector('.btn-submit');
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.disabled = true;
+
+      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdvYTljn6P28jXj3fQhuudVhBJybwEVdGL0HYcj5wddfNdG4w/formResponse', {
+        method: 'POST',
+        body: formData,
+        mode: 'no-cors'
+      }).then(function() {
+        form.style.display = 'none';
+        document.getElementById('rsvp-success').style.display = 'block';
+      }).catch(function() {
+        form.style.display = 'none';
+        document.getElementById('rsvp-success').style.display = 'block';
+      });
+    });
+  }
 });
