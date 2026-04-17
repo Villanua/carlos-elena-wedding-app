@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carlos & Elena — 26 de Septiembre de 2026</title>
+<title>Elena & Carlos — 21 de Noviembre de 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -19,10 +19,10 @@
   <img class="flowers-tr" src="img/flowers-1.png" alt="Flores" style="position:absolute; top:350px; right:0; width:400px; pointer-events:none; transform: scaleX(-1) rotate(90deg); transform-origin: center;">
 
   <!-- Frame with Photo -->
-  <img src="img/frame.png" alt="Marco" style="width:480px; height:660px; object-fit: cover; object-position: center 25%; z-index:3; margin-bottom:0px;">
+  <img src="img/frame-EyC5.png" alt="Marco" style="width:480px; height:660px; object-fit: cover; object-position: center 25%; z-index:3; margin-bottom:0px;">
 
-  <h1 class="hero-names">Carlos &amp; Elena</h1>
-  <p class="hero-date">26 de Septiembre de 2026</p>
+  <h1 class="hero-names">Elena &amp; Carlos</h1>
+  <p class="hero-date">21 de Noviembre de 2026</p>
 
   <img src="img/flowers-3.png" alt="Flores" style="width:300px; opacity:0.8; pointer-events:none; margin-top:50px; margin-bottom:-2px; display:block; position:relative; z-index:4;">
 </section>
@@ -31,8 +31,27 @@
 <section class="story-wrapper" style="background:white; padding:70px 20px;">
   <div class="story-section" style="max-width:860px; margin:0 auto;">
     <div class="story-text" style="text-align:center;">
-      <h2>Sección 1</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+      <p>Después de mucho esperar, por fin tenemos fecha y nos morimos de ganas de compartir con vosotros nuestro día más especial. Así que id buscando modelito y empezad a organizar vuestra agenda para no perderos el evento del año.</p>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown" style="margin-top:40px;">
+        <div class="countdown-item">
+          <span class="countdown-number" id="countdown-days">---</span>
+          <span class="countdown-label">Días</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="countdown-hours">--</span>
+          <span class="countdown-label">Horas</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="countdown-minutes">--</span>
+          <span class="countdown-label">Minutos</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-number" id="countdown-seconds">--</span>
+          <span class="countdown-label">Segundos</span>
+        </div>
+      </div>
     </div>
     <div class="story-photos">
       <!-- Tape -->
@@ -116,10 +135,10 @@
       </svg>
     </div>
     <div class="venue-text">
-      <h2>Lugar de la Boda</h2>
-      <p>Sábado 26 de Septiembre de 2026.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-      <a class="btn-directions" href="https://maps.google.com" target="_blank">Cómo llegar</a>
+      <h2>Dónde nos casamos</h2>
+      <p>La ceremonia tendrá lugar el día 21 de noviembre de 2026 a las 12:00 en la parroquia de Nuestra Señora de la Esperanza y San Eugenio de Mazenod, situada en el barrio de Ciudad Jardín. Nuestra recomendación es que intentéis llegar a las 11:30 a la iglesia.</p>
+      <p>Una vez acabada la misa, continuaremos con el convite en los Jardines del Trapiche, situado en Vélez-Málaga.</p>
+      <a class="btn-directions" href="https://maps.app.goo.gl/Z7xFRHMFaU6FfAEc7" target="_blank">Cómo llegar</a>
     </div>
   </div>
 </section>
@@ -131,74 +150,45 @@
   <img class="rsvp-flower-r" src="img/flowers-5.png" alt="Flores" style="position:absolute; right:-40px; bottom:20px; width:180px; pointer-events:none;">
 
   <div class="rsvp-content">
-    <h2>Confirma tu<br>Asistencia</h2>
-    <p style="text-align:center; font-size:14px; color:var(--brown-mid); margin-bottom:30px; font-weight:300;">Por favor, confírmanos tu asistencia antes del 1 de agosto para que podamos organizarlo todo con cariño.</p>
+    <h2>Confirma tu asistencia</h2>
+    <p style="text-align:center; font-family:'Lato',sans-serif; font-size:15px; color:var(--brown-mid); margin-bottom:30px; font-weight:300; line-height:1.8;">Os agradecemos que confirméis vuestra asistencia a poder ser antes del 1 de octubre</p>
 
-    <input class="form-field" type="text" placeholder="Nombre completo">
+    <label class="form-label">Nombre y apellidos <span class="required">*</span></label>
+    <input class="form-field" type="text" name="nombre" required>
 
-    <select class="form-field">
-      <option value="" disabled selected>Asistencia (Sí/No)</option>
-      <option value="si">Sí, asistiré con alegría</option>
-      <option value="no">No podré asistir</option>
-    </select>
-
-    <div class="radio-group" style="justify-content: center; margin-bottom: 20px;">
-      <span style="margin-right: 15px; color: var(--brown-mid);">¿Vendrás con acompañante?</span>
-      <label style="margin-right: 10px;"><input type="radio" name="acomp" value="si"> Sí</label>
-      <label><input type="radio" name="acomp" value="no" checked> No</label>
+    <label class="form-label">¿Asistirás a la boda? <span class="required">*</span></label>
+    <div class="radio-group-vertical">
+      <label><input type="radio" name="asistencia" value="si" required> Sí</label>
+      <label><input type="radio" name="asistencia" value="no"> No</label>
     </div>
 
-    <input class="form-field" type="text" placeholder="Nombre del acompañante (si aplica)">
-    <input class="form-field" type="text" placeholder="Restricciones alimentarias">
+    <label class="form-label">¿Tienes alguna alergia, intolerancia, restricción alimentaria o dieta específica?</label>
+    <div class="radio-group-vertical">
+      <label><input type="radio" name="alergias" value="si"> Sí</label>
+      <label><input type="radio" name="alergias" value="no"> No</label>
+    </div>
+    <input class="form-field" type="text" name="alergias_detalle" placeholder="En caso afirmativo, indícanos cuál">
+
+    <label class="form-label">¿Necesitarás autobús? <span class="required">*</span></label>
+    <div class="radio-group-vertical">
+      <label><input type="radio" name="autobus" value="no" required> No</label>
+      <label><input type="radio" name="autobus" value="ida_vuelta"> Sí, ida y vuelta</label>
+      <label><input type="radio" name="autobus" value="solo_ida"> Sí, solo ida</label>
+      <label><input type="radio" name="autobus" value="solo_vuelta"> Sí, solo vuelta</label>
+    </div>
+
+    <label class="form-label">¿Te alojarás en alguno de los hoteles sugeridos? ¿En cuál?</label>
+    <input class="form-field" type="text" name="hotel" placeholder="Aunque no sea de los sugeridos puedes anotar dónde te hospedarás">
+
+    <label class="form-label">¿Quieres dejarnos algún mensaje?</label>
+    <textarea class="form-field" name="mensaje" rows="3" placeholder="Alguna idea, canción, sugerencia..."></textarea>
 
     <button class="btn-submit">Enviar Confirmación</button>
   </div>
 </section>
 
-  <!-- Recommendations -->
-  <section class="reco-section" style="position:relative;">
-    <h2>Recomendaciones</h2>
-    <div class="reco-cards">
-      <div class="reco-card">
-        <div class="reco-card-img">🚣</div>
-        <div class="reco-card-body">
-          <h3>Casa de Botes</h3>
-          <p>Un lugar emblemático en el puerto de Málaga, perfecto para disfrutar de la brisa marina y una gastronomía excepcional.</p>
-        </div>
-      </div>
-    <div class="reco-card">
-        <div class="reco-card-img">🍷</div>
-        <div class="reco-card-body">
-          <h3>El Pimpi</h3>
-          <p>La bodega más famosa de la ciudad. Un rincón lleno de historia, barriles firmados y el mejor vino dulce de Málaga.</p>
-        </div>
-      </div>
-      <div class="reco-card">
-        <div class="reco-card-img">🌊</div>
-        <div class="reco-card-body">
-          <h3>Recomendación 3</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
-        </div>
-      </div>
-      <div class="reco-card">
-        <div class="reco-card-img">🏛️</div>
-        <div class="reco-card-body">
-          <h3>Recomendación 4</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
-        </div>
-      </div>
-      <div class="reco-card">
-        <div class="reco-card-img">🍽️</div>
-        <div class="reco-card-body">
-          <h3>Recomendación 5</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
 <!-- ======= FAQ ======= -->
-<section style="background:var(--cream); padding:70px 54px; position:relative; overflow:hidden;">
+<section style="background: white; padding:70px 54px; position:relative; overflow:hidden;">
   <!-- Corner flowers -->
   <img src="img/flowers-4.png" alt="Flores" style="position:absolute;left:-60px;bottom:150px;width:120px;opacity:0.8;pointer-events:none;">
   <img src="img/flowers-5.png" alt="Flores" style="position:absolute;right:-60px;bottom:-20px;width:140px;opacity:0.8;pointer-events:none;">
@@ -207,31 +197,56 @@
     <h2 style="font-family:'Great Vibes',cursive;font-size:58px;color:var(--brown-dark);text-align:center;margin-bottom:40px;">Preguntas Frecuentes</h2>
 
     <div class="faq-item">
-      <h4>Pregunta 1</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+      <h4>Aparcamiento</h4>
+      <p>Si vienes en coche propio ten en cuenta que es difícil aparcar por la zona de la iglesia. La parroquia está en el barrio de Mangas Verdes, conocido por sus cuestas empinadas. Si venís de fuera, os recomendamos que no vayáis más arriba de la calle Ricardo Calvo. Es mejor que busquéis por esa manzana pero siempre teniendo de referencia la calle María Tubau o la Avenida Santiago Ramón y Cajal.</p>
+      <p>Si dais vueltas y no encontráis, podéis intentar buscar por estas zonas:</p>
+      <ul style="margin: 10px 0 10px 20px; color: var(--brown-mid); font-family:'Lato',sans-serif; font-weight:300; font-size:15px; line-height:1.8;">
+        <li>Entre el colegio del Pilar y la iglesia de Cristo Rey</li>
+        <li>En el polideportivo</li>
+        <li>Por el conservatorio</li>
+      </ul>
+      <p>En la finca no hay problema de aparcamiento porque tiene parking propio. Para llegar allí desde la iglesia, se tarda aproximadamente 30 minutos. El camino es casi todo el trayecto por autovía, el acceso es sencillo y está bien indicado.</p>
     </div>
 
     <div class="faq-item">
-      <h4>Pregunta 2</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+      <h4>Traslados</h4>
+      <p>Habrá servicio de autobús desde la parroquia hasta la finca y desde la finca a Ciudad Jardín y al centro (al finalizar la boda). ¡No olvides marcar esta opción en el formulario si quieres hacer uso del bus!</p>
     </div>
 
     <div class="faq-item">
-      <h4>Pregunta 3</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+      <h4>Alojamiento</h4>
+      <p>Para los que venís desde fuera, os dejamos un enlace a una presentación Power Point que preparamos con algunas sugerencias sobre dónde hospedarse. Una de las mejores opciones creemos que es Sercotel Rosaleda, ya que está cerca de la iglesia y del centro de Málaga y si traéis coche podríais aparcarlo en el Centro Comercial Rosaleda de forma gratuita.</p>
+      <p><a href="https://canva.link/m7p7yq0m07j30wk" target="_blank" style="color: var(--terracotta); text-decoration: none;">Ver sugerencias de alojamiento</a></p>
     </div>
 
     <div class="faq-item">
-      <h4>Pregunta 4</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris.</p>
+      <h4>Tiempo en Málaga</h4>
+      <p>El noviembre de 2025 fue bastante caluroso, parecía que no se acababa el verano. Aún así, tampoco vamos a coger el año pasado de referencia ya que pareció algo bastante excepcional. Ojalá haga sol, pero si da lluvia en Málaga suele caerse el cielo, no son tres gotas. No os dejéis engañar por los grados, a lo mejor veis de máxima 20º pero tenéis que tener en cuenta que hay mucha humedad, por lo que cuando empieza a atardecer, al quitarse el sol, puede llegar a hacer bastante frío.</p>
     </div>
+
+    <div class="faq-item">
+      <h4>Regalo</h4>
+      <p>Y el motivo por el que os hemos invitado, sobre gordo o: <strong>[FUTURO IBAN]</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ======= RECOMMENDATIONS ======= -->
+<section class="reco-section" style="position:relative; background: var(--sage-bg); padding: 70px 20px;">
+  <div style="max-width:680px; margin:0 auto; position:relative; z-index:2; text-align:center;">
+    <h2 style="font-family:'Great Vibes',cursive;font-size:58px;color:white;text-align:center;margin-bottom:40px;">Recomendaciones</h2>
+    
+    <p style="font-family:'Lato',sans-serif; font-weight:300; font-size:15px; line-height:1.8; color:rgba(255,255,255,0.9);">Si es la primera vez que vas a estar en Málaga y tienes tiempo antes o después de la boda, hay varios imprescindibles que no te puedes perder: la Alcazaba de Málaga, una fortaleza árabe con jardines y vistas espectaculares; justo a sus pies, podréis ver el Teatro Romano; subiendo una escalinata justo detrás del Ayuntamiento, podréis acceder al mirador de Gibralfaro, ideal para subir al atardecer y disfrutar de las mejores panorámicas de la ciudad; la Catedral de Málaga, conocida como "La Manquita" y uno de sus grandes iconos; y, por supuesto, pasear por el centro histórico, pasando por la Plaza de la Constitución, la Plaza de la Merced y la famosa Calle Larios, donde se concentra gran parte del ambiente de la ciudad.</p>
+    
+    <!-- Placeholder para foto de Málaga típica -->
+    <div style="margin-top:40px; width:100%; height:300px; background:linear-gradient(135deg,#e8d8c0,#c89070); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--brown-dark); font-size:60px;">📸</div>
   </div>
 </section>
 
 <!-- ======= FOOTER ======= -->
 <footer class="footer">
-  <span>Carlos &amp; Elena</span>
-  <p style="margin-top:8px;">26 · 09 · 2026 &nbsp;—&nbsp; Lugar de la Boda</p>
+  <span>Elena &amp; Carlos</span>
+  <p style="margin-top:8px;">21 · 11 · 2026</p>
 </footer>
 
 <script src="js/main.js"></script>
