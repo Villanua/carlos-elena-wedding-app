@@ -3,7 +3,7 @@
     --warm-white: #faf7f2;
     --sage: #8a9e7b;
     --sage-dark: #6b7d5e;
-    --sage-bg: #8a9e7b;
+    --sage-bg: #5a7049;
     --terracotta: #c47a5a;
     --rust: #a85c3a;
     --brown-dark: #3d2b1f;
@@ -150,7 +150,7 @@
     position: relative;
     z-index: 3;
     line-height: 1.1;
-    margin-top: -25px;
+    margin-top: 10px;
   }
 
   .hero-date {
@@ -187,12 +187,17 @@
   }
 
   /* ===================== STORY SECTION ===================== */
+  .story-wrapper {
+    background: var(--warm-white);
+    padding: 70px 20px;
+  }
+
   .story-section {
-    background: white;
+    background: var(--warm-white);
     padding: 70px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
     max-width: 900px;
     margin: 0 auto;
@@ -254,8 +259,13 @@
   }
 
   /* ===================== VENUE SECTION ===================== */
+  .venue-wrapper {
+    background: white;
+    padding: 70px 20px;
+  }
+
   .venue-section {
-    background: var(--warm-white);
+    background: white;
     padding: 70px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -286,8 +296,9 @@
   }
 
   .venue-text p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
     color: var(--brown-mid);
     line-height: 1.8;
     margin-bottom: 6px;
@@ -339,8 +350,6 @@
     position: relative;
     z-index: 2;
   }
-    overflow: hidden;
-  }
 
   .rsvp-section h2 {
     font-family: 'Great Vibes', cursive;
@@ -348,7 +357,7 @@
     color: var(--brown-dark);
     text-align: center;
     line-height: 1.2;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
   }
 
   .form-field {
@@ -389,6 +398,42 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b4c35' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 14px center;
+    cursor: pointer;
+  }
+
+  textarea.form-field {
+    resize: vertical;
+    min-height: 60px;
+  }
+
+  .form-label {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--brown-dark);
+    margin-bottom: 8px;
+    margin-top: 4px;
+  }
+
+  .form-label .required {
+    color: var(--terracotta);
+  }
+
+  .radio-group-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: var(--brown-mid);
+  }
+
+  .radio-group-vertical label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     cursor: pointer;
   }
 
@@ -497,9 +542,9 @@
   .faq-item p {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 15px;
     color: var(--brown-mid);
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
   /* ===================== FOOTER ===================== */
@@ -518,6 +563,39 @@
     font-family: 'Great Vibes', cursive;
     font-size: 20px;
     letter-spacing: 1px;
+  }
+
+  /* ===================== COUNTDOWN ===================== */
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .countdown-number {
+    font-family: 'Great Vibes', cursive;
+    font-size: 48px;
+    color: var(--terracotta);
+    line-height: 1;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .countdown-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--brown-mid);
+    text-transform: uppercase;
+    font-weight: 300;
   }
 
   /* ===================== RESPONSIVE ===================== */
