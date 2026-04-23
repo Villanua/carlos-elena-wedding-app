@@ -187,12 +187,17 @@
   }
 
   /* ===================== STORY SECTION ===================== */
+  .story-wrapper {
+    background: var(--warm-white);
+    padding: 70px 20px;
+  }
+
   .story-section {
-    background: white;
+    background: var(--warm-white);
     padding: 70px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
     max-width: 900px;
     margin: 0 auto;
@@ -254,8 +259,13 @@
   }
 
   /* ===================== VENUE SECTION ===================== */
+  .venue-wrapper {
+    background: white;
+    padding: 70px 20px;
+  }
+
   .venue-section {
-    background: var(--warm-white);
+    background: white;
     padding: 70px 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
