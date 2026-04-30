@@ -53,3 +53,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// FAQ collapsible behavior
+document.addEventListener('DOMContentLoaded', () => {
+  const faqButtons = document.querySelectorAll('.faq-question');
+  faqButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const content = item.querySelector('.faq-content');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // update aria
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      item.setAttribute('aria-open', String(!isOpen));
+
+      if (!isOpen) {
+        // open: set max-height to scrollHeight to animate
+        content.classList.add('open');
+        // add small buffer to avoid text clipping due to padding/line-height
+        content.style.maxHeight = (content.scrollHeight + 24) + 'px';
+      } else {
+        // close: remove max-height after forcing reflow
+        content.style.maxHeight = content.scrollHeight + 'px';
+        requestAnimationFrame(() => {
+          content.style.maxHeight = '0px';
+          content.classList.remove('open');
+        });
+      }
+    });
+  });
+});
