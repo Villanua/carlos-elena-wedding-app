@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Countdown to wedding
   function updateCountdown() {
-    const weddingDate = new Date('November 21, 2026 12:00:00').getTime();
+    const weddingDate = new Date('2026-11-21T12:00:00+01:00').getTime();
     const now = new Date().getTime();
     const timeLeft = weddingDate - now;
 
@@ -22,6 +22,25 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('countdown-minutes').textContent = '00';
       document.getElementById('countdown-seconds').textContent = '00';
     }
+    
+      // Show debugging info: local now and Europe/Madrid now, plus target label
+      try {
+        const infoEl = document.getElementById('countdown-info');
+        if (infoEl) {
+          const nowLocal = new Date();
+          const nowLocalStr = nowLocal.toLocaleString();
+          const madridFormatter = new Intl.DateTimeFormat('es-ES', {
+            timeZone: 'Europe/Madrid',
+            year: 'numeric', month: '2-digit', day: '2-digit',
+            hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+          });
+          const nowMadridParts = madridFormatter.format(nowLocal);
+          infoEl.textContent = `Local: ${nowLocalStr} — Madrid: ${nowMadridParts} — Target: 2026-11-21 12:00 (Europe/Madrid)`;
+        }
+      } catch (e) {
+        // ignore in older browsers
+        console.warn('Countdown info format not available', e);
+      }
   }
 
   // Update countdown every second

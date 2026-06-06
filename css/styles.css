@@ -589,6 +589,28 @@
     padding: 12px 12px 12px 12px;
   }
 
+  /* Ensure lists inside FAQ match paragraph text and bullets scale correctly */
+  .faq-content ul {
+    margin: 10px 0 10px 20px;
+    padding-left: 0;
+    list-style-position: outside;
+  }
+
+  .faq-content li {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--brown-mid);
+    line-height: 1.8;
+    margin-bottom: 6px;
+  }
+
+  /* Make marker (bullet) match text size and color */
+  .faq-content li::marker {
+    font-size: 15px;
+    color: var(--brown-mid);
+  }
+
   /* ===================== FOOTER ===================== */
   .footer {
     background: var(--brown-dark);
