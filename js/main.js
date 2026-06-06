@@ -47,27 +47,54 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // RSVP Form → Google Forms
+// RSVP Form → Google Forms
   const form = document.getElementById('rsvp-form');
   if (form) {
+    // Show/hide allergies details field conditionally
+    const allergiesYes = document.getElementById('allergies-yes');
+    const allergiesNo = document.getElementById('allergies-no');
+    const allergiesDetails = document.getElementById('allergies-details');
+    
+    if (allergiesYes && allergiesNo && allergiesDetails) {
+      const toggleAllergiesDetails = () => {
+        if (allergiesYes.checked) {
+          allergiesDetails.style.display = 'block';
+        } else {
+          allergiesDetails.style.display = 'none';
+        }
+      };
+      allergiesYes.addEventListener('change', toggleAllergiesDetails);
+      allergiesNo.addEventListener('change', toggleAllergiesDetails);
+    }
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      const formData = new FormData(form);
       const submitBtn = form.querySelector('.btn-submit');
       submitBtn.textContent = 'Enviando...';
       submitBtn.disabled = true;
 
-      fetch('https://docs.google.com/forms/d/e/1FAIpQLSdvYTljn6P28jXj3fQhuudVhBJybwEVdGL0HYcj5wddfNdG4w/formResponse', {
-        method: 'POST',
-        body: formData,
+      const params = new URLSearchParams({
+        emailAddress:     form.querySelector('[name="emailAddress"]').value,
+        nombre:           form.querySelector('[name="entry.965443207"]').value,
+        asistencia:       (form.querySelector('[name="entry.1017429299"]:checked') || {}).value || '',
+        alergias:         (form.querySelector('[name="entry.1163954892"]:checked') || {}).value || '',
+        detallesAlergias: form.querySelector('[name="entry.1794076804"]') ? form.querySelector('[name="entry.1794076804"]').value : '',
+        autobus:          (form.querySelector('[name="entry.477625878"]:checked') || {}).value || '',
+        hotel:            form.querySelector('[name="entry.1118429621"]').value,
+        mensaje:          form.querySelector('[name="entry.897303289"]').value,
+      });
+
+      fetch('https://script.google.com/macros/s/AKfycbzS8p_ZXohRLoBdmMXaTcTqLNf9TQUJrR3jTCdEq_S1pX5KWN2JqFWav1wjvh31648W/exec?' + params.toString(), {
+        method: 'GET',
         mode: 'no-cors'
       }).then(function() {
         form.style.display = 'none';
         document.getElementById('rsvp-success').style.display = 'block';
       }).catch(function() {
-        form.style.display = 'none';
-        document.getElementById('rsvp-success').style.display = 'block';
+        submitBtn.textContent = 'Enviar Confirmación';
+        submitBtn.disabled = false;
+        alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
       });
     });
   }

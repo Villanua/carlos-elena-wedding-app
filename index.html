@@ -87,6 +87,9 @@
     <p style="text-align:center; font-family:'Lato',sans-serif; font-size:15px; color:var(--brown-mid); margin-bottom:30px; font-weight:300; line-height:1.8;">Os agradecemos que confirméis vuestra asistencia a poder ser antes del 1 de octubre</p>
 
     <form id="rsvp-form">
+      <label class="form-label">Correo electrónico <span class="required">*</span></label>
+      <input class="form-field" type="email" name="emailAddress" required placeholder="tu@email.com">
+
       <label class="form-label">Nombre y apellidos <span class="required">*</span></label>
       <input class="form-field" type="text" name="entry.965443207" required>
 
@@ -98,11 +101,14 @@
 
       <label class="form-label">¿Tienes alguna alergia, intolerancia, restricción alimentaria o dieta específica?</label>
       <div class="radio-group-vertical">
-        <label><input type="radio" name="entry.1163954892" value="Sí"> Sí</label>
-        <label><input type="radio" name="entry.1163954892" value="No"> No</label>
+        <label><input type="radio" name="entry.1163954892" value="Sí" id="allergies-yes"> Sí</label>
+        <label><input type="radio" name="entry.1163954892" value="No" id="allergies-no"> No</label>
       </div>
-      <label class="form-label">Especifica los detalles:</label>
-      <input class="form-field" type="text" name="entry.1794076804" placeholder="Alergias, intolerancias, menú vegetariano, vegano, celíaco, infantil...">
+
+      <div id="allergies-details" style="display:none;">
+        <label class="form-label">Especifica los detalles:</label>
+        <input class="form-field" type="text" name="entry.1794076804" placeholder="Alergias, intolerancias, menú vegetariano, vegano, celíaco, infantil...">
+      </div>
 
       <label class="form-label">¿Necesitarás autobús? <span class="required">*</span></label>
       <div class="radio-group-vertical">
