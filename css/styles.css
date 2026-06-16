@@ -304,6 +304,11 @@
     margin-bottom: 6px;
   }
 
+  .reception-grid {
+    grid-template-columns: 1.8fr 2.2fr;
+    gap: 80px;
+  }
+
   .btn-directions {
     display: inline-block;
     margin-top: 20px;
@@ -726,6 +731,14 @@
       margin: 0 auto;
     }
 
+    .reception-grid {
+      grid-template-columns: 1fr !important;
+    }
+
+    .reception-grid .venue-illustration {
+      order: -1;
+    }
+
     .venue-text h2 {
       font-size: 38px;
       text-align: center;
@@ -789,6 +802,19 @@
 
     .faq-item p {
       font-size: 13px;
+    }
+
+    .faq-content li {
+      font-size: 13px !important;
+    }
+
+    .faq-content li::marker {
+      font-size: 13px !important;
+    }
+
+    /* Photos section */
+    .photos-section img[src*="flowers"] {
+      width: 100px !important;
     }
 
     /* Footer */
