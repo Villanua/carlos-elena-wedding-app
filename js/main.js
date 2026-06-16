@@ -75,14 +75,13 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled = true;
 
       const params = new URLSearchParams({
-        emailAddress:     form.querySelector('[name="emailAddress"]').value,
-        nombre:           form.querySelector('[name="entry.965443207"]').value,
-        asistencia:       (form.querySelector('[name="entry.1017429299"]:checked') || {}).value || '',
-        alergias:         (form.querySelector('[name="entry.1163954892"]:checked') || {}).value || '',
-        detallesAlergias: form.querySelector('[name="entry.1794076804"]') ? form.querySelector('[name="entry.1794076804"]').value : '',
-        autobus:          (form.querySelector('[name="entry.477625878"]:checked') || {}).value || '',
-        hotel:            form.querySelector('[name="entry.1118429621"]').value,
-        mensaje:          form.querySelector('[name="entry.897303289"]').value,
+        emailAddress:        form.querySelector('[name="emailAddress"]').value,
+        nombre:              form.querySelector('[name="entry.965443207"]').value,
+        asistencia:          (form.querySelector('[name="entry.1017429299"]:checked') || {}).value || '',
+        alergias:            (form.querySelector('[name="entry.1163954892"]:checked') || {}).value || '',
+        detallesAlergias:    form.querySelector('[name="entry.1794076804"]') ? form.querySelector('[name="entry.1794076804"]').value : '',
+        autobus:             (form.querySelector('[name="entry.477625878"]:checked') || {}).value || '',
+        mensaje:             form.querySelector('[name="entry.897303289"]').value,
       });
 
       fetch('https://script.google.com/macros/s/AKfycbzS8p_ZXohRLoBdmMXaTcTqLNf9TQUJrR3jTCdEq_S1pX5KWN2JqFWav1wjvh31648W/exec?' + params.toString(), {
