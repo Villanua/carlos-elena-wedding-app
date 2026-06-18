@@ -84,13 +84,26 @@ document.addEventListener('DOMContentLoaded', () => {
         mensaje:             form.querySelector('[name="entry.897303289"]').value,
       });
 
-      fetch('https://script.google.com/macros/s/AKfycbzS8p_ZXohRLoBdmMXaTcTqLNf9TQUJrR3jTCdEq_S1pX5KWN2JqFWav1wjvh31648W/exec?' + params.toString(), {
-        method: 'GET',
-        mode: 'no-cors'
-      }).then(function() {
-        form.style.display = 'none';
-        document.getElementById('rsvp-success').style.display = 'block';
-      }).catch(function() {
+      const timeout = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('timeout')), 8000)
+      );
+
+      Promise.race([
+        fetch('https://script.google.com/macros/s/AKfycbzS8p_ZXohRLoBdmMXaTcTqLNf9TQUJrR3jTCdEq_S1pX5KWN2JqFWav1wjvh31648W/exec?' + params.toString(), {
+          method: 'GET',
+          redirect: 'follow'
+        }).then(function(res) {
+          return res.json();
+        }),
+        timeout
+      ]).then(function(data) {
+        if (data && data.result === 'ok') {
+          form.style.display = 'none';
+          document.getElementById('rsvp-success').style.display = 'block';
+        } else {
+          throw new Error('bad_response');
+        }
+      }).catch(function(err) {
         submitBtn.textContent = 'Enviar Confirmación';
         submitBtn.disabled = false;
         alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
