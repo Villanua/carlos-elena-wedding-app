@@ -84,30 +84,46 @@ document.addEventListener('DOMContentLoaded', () => {
         mensaje:             form.querySelector('[name="entry.897303289"]').value,
       });
 
-      const timeout = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error('timeout')), 8000)
-      );
+      const callbackName = 'rsvpCallback_' + Date.now();
+      params.append('callback', callbackName);
 
-      Promise.race([
-        fetch('https://script.google.com/macros/s/AKfycbzS8p_ZXohRLoBdmMXaTcTqLNf9TQUJrR3jTCdEq_S1pX5KWN2JqFWav1wjvh31648W/exec?' + params.toString(), {
-          method: 'GET',
-          redirect: 'follow'
-        }).then(function(res) {
-          return res.json();
-        }),
-        timeout
-      ]).then(function(data) {
+      let timeoutId;
+      let scriptEl;
+
+      const cleanup = function() {
+        clearTimeout(timeoutId);
+        if (scriptEl && scriptEl.parentNode) scriptEl.parentNode.removeChild(scriptEl);
+        delete window[callbackName];
+      };
+
+      window[callbackName] = function(data) {
+        cleanup();
         if (data && data.result === 'ok') {
           form.style.display = 'none';
           document.getElementById('rsvp-success').style.display = 'block';
         } else {
-          throw new Error('bad_response');
+          submitBtn.textContent = 'Enviar Confirmación';
+          submitBtn.disabled = false;
+          alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
         }
-      }).catch(function(err) {
+      };
+
+      timeoutId = setTimeout(function() {
+        cleanup();
         submitBtn.textContent = 'Enviar Confirmación';
         submitBtn.disabled = false;
         alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
-      });
+      }, 10000);
+
+      scriptEl = document.createElement('script');
+      scriptEl.src = 'https://script.google.com/macros/s/AKfycbwnguSuj1vthHRTZImCMz1ALHHvELdSs6SlB7s9HAaDGiYBXYN6E9kDxXY9IeT-2GTd/exec?' + params.toString();
+      scriptEl.onerror = function() {
+        cleanup();
+        submitBtn.textContent = 'Enviar Confirmación';
+        submitBtn.disabled = false;
+        alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
+      };
+      document.body.appendChild(scriptEl);
     });
   }
 });
