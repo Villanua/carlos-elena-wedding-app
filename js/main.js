@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-// RSVP Form → Google Forms
+// RSVP Form
   const form = document.getElementById('rsvp-form');
   if (form) {
     // Show/hide allergies details field conditionally
@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('save-rsvp.php?' + params.toString(), { signal: controller.signal })
           .then(function(res) {
             clearTimeout(timeoutId);
+            if (!res.ok) throw new Error('http_error');
             return res.json();
           })
           .then(function(data) {
