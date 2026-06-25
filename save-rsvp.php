@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 }
 
 define('DB_HOST', 'localhost');
-define('DB_USER', 'carlos_elena');
+define('DB_USER', 'u966112943_carlos_elena');
 define('DB_PASS', 'CarlosElena@1');
-define('DB_NAME', 'carlos_elena');
+define('DB_NAME', 'u966112943_carlos_elena');
 
 function clean($value) {
     return trim($value ?? '');
