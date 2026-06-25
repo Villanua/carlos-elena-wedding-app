@@ -173,7 +173,7 @@ window.addEventListener('scroll', () => {
   const flowersTl = document.querySelector('.flowers-tl');
   const flowersTr = document.querySelector('.flowers-tr');
   if (flowersTl) flowersTl.style.transform = `translateY(${scrollY * 0.18}px)`;
-  if (flowersTr) flowersTr.style.transform = `scaleX(-1) rotate(90deg) translateY(${scrollY * -0.12}px)`;
+  if (flowersTr) flowersTr.style.transform = `translateY(${scrollY * 0.12}px) scaleX(-1) rotate(90deg)`;
 
   // Story photos parallax
   const storyPhoto = document.querySelector('.story-photos img');
