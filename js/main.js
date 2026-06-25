@@ -84,46 +84,31 @@ document.addEventListener('DOMContentLoaded', () => {
         mensaje:             form.querySelector('[name="entry.897303289"]').value,
       });
 
-      const callbackName = 'rsvpCallback_' + Date.now();
-      params.append('callback', callbackName);
+      // Primary: save to server (same domain, reliable)
+      fetch('save-rsvp.php?' + params.toString())
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data && data.result === 'ok') {
+            // Backup: also send to Google Sheets silently (fire and forget)
+            const callbackName = 'rsvpBackup_' + Date.now();
+            const backupParams = new URLSearchParams(params);
+            backupParams.append('callback', callbackName);
+            window[callbackName] = function() { delete window[callbackName]; };
+            const backupScript = document.createElement('script');
+            backupScript.src = 'https://script.google.com/macros/s/AKfycbwnguSuj1vthHRTZImCMz1ALHHvELdSs6SlB7s9HAaDGiYBXYN6E9kDxXY9IeT-2GTd/exec?' + backupParams.toString();
+            document.body.appendChild(backupScript);
 
-      let timeoutId;
-      let scriptEl;
-
-      const cleanup = function() {
-        clearTimeout(timeoutId);
-        if (scriptEl && scriptEl.parentNode) scriptEl.parentNode.removeChild(scriptEl);
-        delete window[callbackName];
-      };
-
-      window[callbackName] = function(data) {
-        cleanup();
-        if (data && data.result === 'ok') {
-          form.style.display = 'none';
-          document.getElementById('rsvp-success').style.display = 'block';
-        } else {
+            form.style.display = 'none';
+            document.getElementById('rsvp-success').style.display = 'block';
+          } else {
+            throw new Error('bad_response');
+          }
+        })
+        .catch(function() {
           submitBtn.textContent = 'Enviar Confirmación';
           submitBtn.disabled = false;
           alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
-        }
-      };
-
-      timeoutId = setTimeout(function() {
-        cleanup();
-        submitBtn.textContent = 'Enviar Confirmación';
-        submitBtn.disabled = false;
-        alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
-      }, 10000);
-
-      scriptEl = document.createElement('script');
-      scriptEl.src = 'https://script.google.com/macros/s/AKfycbwnguSuj1vthHRTZImCMz1ALHHvELdSs6SlB7s9HAaDGiYBXYN6E9kDxXY9IeT-2GTd/exec?' + params.toString();
-      scriptEl.onerror = function() {
-        cleanup();
-        submitBtn.textContent = 'Enviar Confirmación';
-        submitBtn.disabled = false;
-        alert('Ha ocurrido un error al enviar. Por favor inténtalo de nuevo.');
-      };
-      document.body.appendChild(scriptEl);
+        });
     });
   }
 });
