@@ -15,6 +15,34 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
+  /* ── Scroll fade-in ── */
+  .will-animate {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .will-animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Title letter animation ── */
+  @keyframes letterIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heroDateIn {
+    to { opacity: 1; }
+  }
+
+  /* ── Venue image overflow clip for parallax ── */
+  .venue-illustration {
+    overflow: hidden;
+  }
+  .venue-illustration img {
+    transform-origin: center;
+    will-change: transform;
+  }
+
   html {
     overflow-x: hidden;
     width: 100%;
@@ -151,6 +179,7 @@
     z-index: 3;
     line-height: 1.1;
     margin-top: 10px;
+    opacity: 0;
   }
 
   .hero-date {
